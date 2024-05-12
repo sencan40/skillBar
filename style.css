@@ -1,0 +1,445 @@
+/* Genel resetler ve temel kutu modeli ayarları */
+* {
+    margin: 0; /* Dış boşluk sıfır */
+    padding: 0; /* İç boşluk sıfır */
+    box-sizing: border-box; /* Kutu modeli: kenar kutusu içinde yer alan içerik kutusu ve dolguların genişlik ve yükseklik değerleri içerir */
+    font-family: 'Poppins', sans-serif; /* Yazı tipi tanımı */
+}
+
+/* Sayfa stil ayarları */
+body {
+    color: #fff; /* Metin rengi beyaz */
+    background: black; /* Arka plan siyah */
+}
+
+/* Başlık alt başlığının stilleri */
+.sub-title {
+    text-align: center; /* Başlık metni ortalanır */
+    font-size: 60px; /* Font boyutu 60 piksel */
+    padding-bottom: 70px; /* Alt kısma boşluk eklenir */
+    padding-top: 30px; /* Üst kısma boşluk eklenir */
+}
+
+.sub-title span {
+    color: #0ef; /* Alt başlık içindeki span etiketinin rengi mavi */
+}
+
+/* İçerik bölümünün genel stilleri */
+section {
+    display: flex; /* İçerik bölümü flex olarak düzenlenir */
+    flex-wrap: wrap; /* Daha küçük ekranlarda sarma özelliği */
+}
+
+/* İçerik kutusunun stilleri */
+.container1 {
+    width: 600px; /* Kutu genişliği 600 piksel */
+    height: 500px; /* Kutu yüksekliği 500 piksel */
+    padding: 75px 90px; /* Kutu iç kenar boşlukları */
+    margin-left: 120px; /* Sol kenardan 120 piksel boşluk */
+}
+
+
+/* Başlık stilleri */
+.heading {
+    /* Metni ortala */
+    text-align: center;
+    /* Altı çizili olarak stil ver */
+    text-decoration: underline;
+    /* Alt çizgiyi metne olan uzaklığı ayarla */
+    text-underline-offset: 10px;
+    /* Alt çizginin kalınlığını ayarla */
+    text-decoration-thickness: 5px;
+    /* Alt çizginin altındaki boşluk */
+    margin-bottom: 50px;
+}
+
+/* Teknik çubuklar */
+.bar {
+    /* Yazı boyutunu ayarla */
+    font-size: 23px;
+}
+
+/* Teknik çubukların içeriklerinin düzeni */
+.technical-bars .bar {
+    /* Teknik çubuklar arasındaki boşluğu ayarla */
+    margin: 30px 0; /*ilk dewer 40px ti değişiklik yapıldı*/
+}
+
+/* İlk teknik çubuk */
+.technical-bars .bar:first-child {
+    /* İlk teknik çubuk için üst boşluk */
+    margin-top: 0;
+}
+
+/* Son teknik çubuk */
+.technical-bars .bar:last-child {
+    /* Son teknik çubuk için alt boşluk */
+    margin-bottom: 0;
+}
+
+/* Teknik çubuk içeriği */
+.technical-bars .bar .info {
+    /* İçeriğin altındaki boşluk */
+    margin-bottom: 5px;
+}
+
+/* Teknik çubuk içeriğindeki metin */
+.technical-bars .bar .info span {
+    /* Metin boyutu */
+    font-size: 17px;
+    /* Kalınlık */
+    font-weight: 500;
+    /* Metni ekrana göstermek için animasyon */
+    animation: showText 0.5s 1s linear forwards;
+    /* Opaklık: 0'dan başla */
+    opacity: 0;
+}
+
+/* Teknik çubuk ilerleme çizgisi */
+.technical-bars .bar .progress-line {
+    /* Pozisyon */
+    position: relative;
+    /* Kenar yarıçapı */
+    border-radius: 10px;
+    /* Genişlik */
+    width: 80%;
+    /* Yükseklik */
+    height: 1px; /*normal değeri 3px*/
+    /* Arkaplan rengi */
+    background-color: #c11212;
+    /* Animasyon */
+    animation: animate 1s cubic-bezier(1, 0, 0, 5.1) forwards;
+    /* Dönüşüm: X ekseninde ölçekleme */
+    transform: scaleX(0);
+    /* Dönüşüm orijini */
+    transform-origin: left;
+}
+
+
+/* Animasyon */
+@keyframes animate {
+    /* Yüzde 100 animasyonu */
+    100% {
+        /* Ölçekleme: X ekseni boyunca tamamlanmış ölçekleme */
+        transform: scaleX(1);
+    }
+}
+
+/* Teknik çubuk ilerleme çizgisi içeriği */
+.technical-bars .bar .progress-line span {
+    /* Yükseklik: %100 */
+    height: 100%;
+    /* Arkaplan rengi */
+    background-color: #0ef;
+    /* Pozisyon: Mutlak */
+    position: absolute;
+    /* Kenar yarıçapı */
+    border-radius: 10px;
+    /* Animasyon: Animasyon adı, süre, gecikme, animasyon eğrisi */
+    animation: animate 1s 1s cubic-bezier(1, 0, 0, 5.1) forwards;
+    /* Ölçekleme: X ekseni boyunca ölçekleme */
+    transform: scaleX(0);
+    /* Dönüşüm orijini: Sol */
+    transform-origin: left;
+}
+
+/* HTML ilerleme çizgisi içeriği */
+.progress-line.html span {
+    /* Genişlik: %90 */
+    width: 90%;
+}
+
+/* CSS ilerleme çizgisi içeriği */
+.progress-line.css span {
+    /* Genişlik: %85 */
+    width: 85%;
+}
+
+/* JavaScript ilerleme çizgisi içeriği */
+.progress-line.javascript span {
+    /* Genişlik: %30 */
+    width: 30%;
+}
+
+/* Python ilerleme çizgisi içeriği */
+.progress-line.python span {
+    /* Genişlik: %35 */
+    width: 35%;
+}
+
+/* React ilerleme çizgisi içeriği */
+.progress-line.react span {
+    /* Genişlik: %40 */
+    width: 40%;
+}
+
+/* İlerleme çizgisi içeriği sonrası metin */
+.progress-line span::after {
+    /* Pozisyon: Mutlak */
+    position: absolute;
+    /* Dolgu */
+    padding: 1px 8px;
+    /* Arkaplan rengi */
+    background-color: #000;
+    /* Metin rengi */
+    color: #fff;
+    /* Metin boyutu */
+    font-size: 12px;
+    /* Kenar yarıçapı */
+    border-radius: 3px;
+    /* Üst boşluk */
+    top: -28px;
+    /* Sağ boşluk */
+    right: -20px;
+    /* Animasyon: Metni ekrana göster */
+    animation: showText 0.5s 1.5s linear forwards;
+    /* Opaklık: 0'dan başla */
+    opacity: 0;
+}
+
+/* HTML ilerleme çizgisi içeriği sonrası metin */
+.progress-line.html span::after {
+    /* İçerik: "90%" */
+    content: "90%";
+}
+
+/* CSS ilerleme çizgisi içeriği sonrası metin */
+.progress-line.css span::after {
+    /* İçerik: "85%" */
+    content: "85%";
+}
+
+/* JavaScript ilerleme çizgisi içeriği sonrası metin */
+.progress-line.javascript span::after {
+    /* İçerik: "30%" */
+    content: "30%";
+}
+
+/* Python ilerleme çizgisi içeriği sonrası metin */
+.progress-line.python span::after {
+    /* İçerik: "35%" */
+    content: "35%";
+}
+
+/* React ilerleme çizgisi içeriği sonrası metin */
+.progress-line.react span::after {
+    /* İçerik: "40%" */
+    content: "40%";
+}
+
+/* JavaScript ilerleme çizgisi içeriği öncesi üçgen gösterge */
+.progress-line.javascript span::before {
+    /* İçerik: Boş */
+    content: "";
+    /* Pozisyon: Mutlak */
+    position: absolute;
+    /* Genişlik: 0 */
+    width: 0;
+    /* Yükseklik: 0 */
+    height: 0;
+    /* Kenarlar: Şeffaf */
+    border: 7px solid transparent;
+    /* Kenar yarıçapı: 0 */
+    border-radius: 0px;
+    /* Sağ kenar genişliği: 0 */
+    border-right-width: 0px;
+    /* Üst kenar rengi: Siyah */
+    border-top-color: #000;
+    /* Üst boşluk */
+    top: -10px;
+    /* Sağ boşluk */
+    right: 0;
+    /* Animasyon: Metni ekrana göster */
+    animation: showText 0.5s 1.5s linear forwards;
+    /* Opaklık: 0'dan başla */
+    opacity: 0;
+}
+
+/* Animasyon: Metni ekrana göster */
+@keyframes showText {
+    /* Yüzde 100: Opaklık 1 */
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Yarıçaplı çubuklar */
+.radial-bars {
+    /* Genişlik: %100 */
+    width: 100%;
+    /* Düzen: Dizgi */
+    display: flex;
+    /* Sargı: Sarma */
+    flex-wrap: wrap;
+    /* İçeriği yatayda hizalama: Eşit aralıklarla */
+    justify-content: space-evenly;
+    /* İçeriği dikeyde hizalama: Yukarıya hizalı */
+    align-items: flex-start;
+}
+
+/* Yarıçaplı çubuk */
+.radial-bars .radial-bar {
+    /* Genişlik: %50 */
+    width: 50%;
+    /* Yükseklik: 170px */
+    height: 170px;
+    /* Alt boşluk */
+    margin-bottom: 10px;
+    /* Pozisyon: Göreli */
+    position: relative;
+}
+
+/* Yarıçaplı çubuk içerik */
+.radial-bars .radial-bar svg {
+    /* Pozisyon: Mutlak */
+    position: absolute;
+    /* Üst boşluk: %50 */
+    top: 50%;
+    /* Sol boşluk: %50 */
+    left: 50%;
+    /* Dönüşüm: Yüzde 50 oranında yatayda ve dikeyde kaydırma, -90 derece döndürme */
+    transform: translate(-50%,-50%) rotate(-90deg);
+    /* Genişlik: 120px */
+    width: 120px;
+    /* Yükseklik: 160px */
+    height: 160px;
+}
+
+/* İlerleme çubuğu */
+.radial-bars .radial-bar .progress-bar {
+    /* Çizgi kalınlığı */
+    stroke-width: 10;
+    /* Çizgi rengi */
+    stroke: #c11212;
+    /* Doldurma: Şeffaf */
+    fill: transparent;
+    /* Çizgi kesit dizisi: Toplam çizgi uzunluğu */
+    stroke-dasharray: 502;
+    /* Çizgi kesit ofseti: Toplam çizgi uzunluğu */
+    stroke-dashoffset: 502;
+    /* Çizgi ucu stili: Yuvarlatılmış */
+    stroke-linecap: round;
+    /* Animasyon: Çubuğu animasyonla göster */
+    animation: animate-bar 1s linear forwards;
+}
+
+
+/* Animasyon: İlerleme çubuğunu animasyonla */
+@keyframes animate-bar {
+    /* Yüzde 100: Çizgi ofsetini -1 yap */
+    100% {
+        stroke-dashoffset: -1;
+    }
+}
+
+/* Yolu temsil eden çizgi stil */
+.path {
+    /* Çizgi kalınlığı */
+    stroke-width: 10;
+    /* Çizgi rengi */
+    stroke: #0ef;    
+    /* Doldurma: Şeffaf */
+    fill: transparent;
+    /* Çizgi kesit dizisi: Toplam çizgi uzunluğu */
+    stroke-dasharray: 502;
+    /* Çizgi kesit ofseti: Toplam çizgi uzunluğu */
+    stroke-dashoffset: 502;
+    /* Çizgi ucu stili: Yuvarlatılmış */
+    stroke-linecap: round;
+}
+
+/* Yol 1 */
+.path-1 {
+    /* Animasyon: Yolu animasyonla göster */
+    animation: animate-path-1 1s 1s linear forwards;
+}
+
+/* Yol 2 */
+.path-2 {
+    /* Animasyon: Yolu animasyonla göster */
+    animation: animate-path-2 1s 1s linear forwards;
+}
+
+/* Yol 3 */
+.path-3 {
+    /* Animasyon: Yolu animasyonla göster */
+    animation: animate-path-3 1s 1s linear forwards;
+}
+
+/* Yol 4 */
+.path-4 {
+    /* Animasyon: Yolu animasyonla göster */
+    animation: animate-path-4 1s 1s linear forwards;
+}
+
+/* Yol animasyonu 1 */
+@keyframes animate-path-1 {
+    /* Yüzde 100: Çizgi ofsetini 50 yap */
+    100% {
+        stroke-dashoffset: 50;
+    }
+}
+
+/* Yol animasyonu 2 */
+@keyframes animate-path-2 {
+    /* Yüzde 100: Çizgi ofsetini 175 yap */
+    100% {
+        stroke-dashoffset: 175;
+    }
+}
+
+/* Yol animasyonu 3 */
+@keyframes animate-path-3 {
+    /* Yüzde 100: Çizgi ofsetini 125 yap */
+    100% {
+        stroke-dashoffset: 125;
+    }
+}
+
+/* Yol animasyonu 4 */
+@keyframes animate-path-4 {
+    /* Yüzde 100: Çizgi ofsetini 75 yap */
+    100% {
+        stroke-dashoffset: 75;
+    }
+}
+
+/* Yüzdelik değer */
+.radial-bar .percentage {
+    /* Pozisyon: Mutlak */
+    position: absolute;
+    /* Üst boşluk: %50 */
+    top: 50%;
+    /* Sol boşluk: %50 */
+    left: 50%;
+    /* Dönüşüm: Yüzde 50 oranında yatayda ve dikeyde kaydırma */
+    transform: translate(-50%,-50%);
+    /* Animasyon: Metni ekrana göster */
+    animation: showText 0.5s 1.5s linear forwards;
+    /* Opaklık: 0'dan başla */
+    opacity: 0;
+}
+
+/* İlerleme çubuğu metni */
+.progress-bar .text {
+    /* Genişlik: %100 */
+    width: 100%;
+    /* Pozisyon: Mutlak */
+    position: absolute;
+    /* Metin hizalaması: Ortala */
+    text-align: center;
+    /* Sol boşluk: %50 */
+    left: 50%;
+    /* Alt boşluk: -5px */
+    bottom: -5px;
+    /* Dönüşüm: X ekseni boyunca -50 oranında kaydırma */
+    transform: translateX(-50%);
+    /* Metin boyutu: 17px */
+    font-size: 17px;
+    /* Kalınlık: 500 */
+    font-weight: 500;
+    /* Animasyon: Metni ekrana göster */
+    animation: showText 0.5s 1.5s linear forwards;
+    /* Opaklık: 0'dan başla */
+    opacity: 0;
+}
